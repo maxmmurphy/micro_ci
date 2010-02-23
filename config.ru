@@ -1,3 +1,3 @@
-require "tiny_ci"
+require "init"
 
 run Sinatra::Application

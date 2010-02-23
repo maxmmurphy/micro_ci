@@ -1,3 +1,11 @@
-- @builds.each do |build|
-  = build
-  %br
+%h2
+  Builds
+%hr
+%table
+  - @builds.each do |build|
+    %tr
+      %td
+        %img{ :src => "/images/#{build.result}.png" }
+      %td
+        %a{:href => build.url}
+          = build.name

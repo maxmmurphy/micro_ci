@@ -1,0 +1,5 @@
+%h1
+  = "#{@build.project_name} - #{@build.result}"
+%div{:width => 300}
+%pre
+  = render(:erb, IO.read("#{@build.output_path}"))

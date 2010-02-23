@@ -1,4 +1,11 @@
-- @projects.each do |project|
-  %h3
-    %a{:href => project} 
-      = project
+%h2
+  Projects
+%hr
+%table
+  - @projects.each do |project|
+    %tr
+      %td
+        %img{ :src => "/images/#{project.last_build_result}.png" }
+      %td
+        %a{ :href => "/projects/#{project.name}" }
+          = project.name
