@@ -1,0 +1,4 @@
+sample_app:
+  branch: master
+  test_cases:
+    - 'rake ci:specs'
