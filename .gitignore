@@ -1,5 +1,4 @@
-builds/
+builds/*.build_log
 log/
 config/projects.yml
-projects/*
 .DS_Store
