@@ -1,3 +1,4 @@
 builds/
 log/
 config/projects.yml
+projects/*
