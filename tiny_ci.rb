@@ -8,7 +8,7 @@ require 'yaml'
 Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each {|lib| require lib }
 
   get '/' do
-    @projects = Dir.glob('projects/*')
+    @projects = TinyCI.projects
     haml :index
   end
 

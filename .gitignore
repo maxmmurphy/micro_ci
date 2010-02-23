@@ -2,3 +2,4 @@ builds/
 log/
 config/projects.yml
 projects/*
+.DS_Store
