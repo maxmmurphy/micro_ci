@@ -1,0 +1,2508 @@
+!!!
+%html
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %title
+      hudson can suck it....so can integrityapp
+    %link{:rel => "stylesheet", :href => "/style.css", :type => "text/css", :media => "all"}
+  %body
+    #wrap
+      #header
+        %h1 
+          AWESOME
+        #summary
+          %h1
+            %strong
+              RuntimeError
+            at
+            %strong
+              \/
+          %h2
+            HELL
+          %ul
+            %li.first
+              %strong
+                file:
+              %code
+                tiny_ci.rb
+            %li
+              %strong
+                location:
+              %code
+                GET /
+            %li.last
+              %strong
+                line:
+              13
+        .clear
+      #backtrace.condensed
+        %h3
+          BACKTRACE
+        %p
+          %a#expando{ :href => "#", :onclick => "toggleBacktrace(); return false" }
+            (expand)
+        %p#nav
+          %strong
+            JUMP TO:
+          %a{ :href => "#get-info" }
+            GET
+          %a{ :href => "#post-info" }
+            POST
+          %a{ :href => "#cookie-info" }
+            COOKIES
+          %a{ :href => "#env-info" }
+            ENV
+        .clear
+        %ul#backtrace-ul
+          %li.frame-info.app
+            %code
+              tiny_ci.rb
+            in
+            %code
+              %strong
+                GET /
+          %li.code.app
+            %ol#pre-1.pre-context{ :start => "6", :onclick => "toggle(1);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each {|lib| require lib }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  get '/' do
+              %li.pre-context-line
+                %code
+                  @projects = Dir.glob('projects/*')
+              %li.pre-context-line
+                %code
+                  haml :index
+            %ol#1.context{ :start => "13", :onclick => "toggle(1);" }
+              %li#context-1.context-line
+                %code
+                  raise &quot;HELL&quot;
+            %ol#post-1.post-context{ :start => "14", :onclick => "toggle(1);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  get '/projects/:project_name' do
+              %li.post-context-line
+                %code
+                  @project = params[:project_name]
+              %li.post-context-line
+                %code
+                  @builds = Dir.glob(&quot;builds/\#{params[:project_name]}/*&quot;)
+              %li.post-context-line
+                %code
+                  haml :project
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.framework
+            %ol#pre-2.pre-context{ :start => "772", :onclick => "toggle(2);" }
+              %li.pre-context-line
+                %code
+                  pattern, keys = compile(path)
+              %li.pre-context-line
+                %code
+                  conditions, @conditions = @conditions, []
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  define_method &quot;\#{verb} \#{path}&quot;, &amp;block
+              %li.pre-context-line
+                %code
+                  unbound_method = instance_method(&quot;\#{verb} \#{path}&quot;)
+              %li.pre-context-line
+                %code
+                  block =
+              %li.pre-context-line
+                %code
+                  if block.arity != 0
+            %ol#2.context{ :start => "779", :onclick => "toggle(2);" }
+              %li#context-2.context-line
+                %code
+                  lambda { unbound_method.bind(self).call(*@block_params) }
+            %ol#post-2.post-context{ :start => "780", :onclick => "toggle(2);" }
+              %li.post-context-line
+                %code
+                  else
+              %li.post-context-line
+                %code
+                  lambda { unbound_method.bind(self).call }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  invoke_hook(:route_added, verb, path, block)
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  (routes[verb] ||= []).
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                route
+          %li.code.framework
+            %ol#pre-3.pre-context{ :start => "772", :onclick => "toggle(3);" }
+              %li.pre-context-line
+                %code
+                  pattern, keys = compile(path)
+              %li.pre-context-line
+                %code
+                  conditions, @conditions = @conditions, []
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  define_method &quot;\#{verb} \#{path}&quot;, &amp;block
+              %li.pre-context-line
+                %code
+                  unbound_method = instance_method(&quot;\#{verb} \#{path}&quot;)
+              %li.pre-context-line
+                %code
+                  block =
+              %li.pre-context-line
+                %code
+                  if block.arity != 0
+            %ol#3.context{ :start => "779", :onclick => "toggle(3);" }
+              %li#context-3.context-line
+                %code
+                  lambda { unbound_method.bind(self).call(*@block_params) }
+            %ol#post-3.post-context{ :start => "780", :onclick => "toggle(3);" }
+              %li.post-context-line
+                %code
+                  else
+              %li.post-context-line
+                %code
+                  lambda { unbound_method.bind(self).call }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  invoke_hook(:route_added, verb, path, block)
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  (routes[verb] ||= []).
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                instance_eval
+          %li.code.framework
+            %ol#pre-4.pre-context{ :start => "467", :onclick => "toggle(4);" }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  route_missing
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Run a route block and throw :halt with the result.
+              %li.pre-context-line
+                %code
+                  def route_eval(&amp;block)
+            %ol#4.context{ :start => "474", :onclick => "toggle(4);" }
+              %li#context-4.context-line
+                %code
+                  throw :halt, instance_eval(&amp;block)
+            %ol#post-4.post-context{ :start => "475", :onclick => "toggle(4);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# No matching route was found or all routes passed. The default
+              %li.post-context-line
+                %code
+                  \# implementation is to forward the request downstream when running
+              %li.post-context-line
+                %code
+                  \# as middleware (@app is non-nil); when no downstream app is set, raise
+              %li.post-context-line
+                %code
+                  \# a NotFound exception. Subclasses can override this method to perform
+              %li.post-context-line
+                %code
+                  \# custom route miss logic.
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                route_eval
+          %li.code.framework
+            %ol#pre-5.pre-context{ :start => "467", :onclick => "toggle(5);" }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  route_missing
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Run a route block and throw :halt with the result.
+              %li.pre-context-line
+                %code
+                  def route_eval(&amp;block)
+            %ol#5.context{ :start => "474", :onclick => "toggle(5);" }
+              %li#context-5.context-line
+                %code
+                  throw :halt, instance_eval(&amp;block)
+            %ol#post-5.post-context{ :start => "475", :onclick => "toggle(5);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# No matching route was found or all routes passed. The default
+              %li.post-context-line
+                %code
+                  \# implementation is to forward the request downstream when running
+              %li.post-context-line
+                %code
+                  \# as middleware (@app is non-nil); when no downstream app is set, raise
+              %li.post-context-line
+                %code
+                  \# a NotFound exception. Subclasses can override this method to perform
+              %li.post-context-line
+                %code
+                  \# custom route miss logic.
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                route!
+          %li.code.framework
+            %ol#pre-6.pre-context{ :start => "456", :onclick => "toggle(6);" }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+                  @params = original_params.merge(params)
+              %li.pre-context-line
+                %code
+                  @block_params = values
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  catch(:pass) do
+              %li.pre-context-line
+                %code
+                  conditions.each { |cond|
+              %li.pre-context-line
+                %code
+                  throw :pass if instance_eval(&amp;cond) == false }
+            %ol#6.context{ :start => "463", :onclick => "toggle(6);" }
+              %li#context-6.context-line
+                %code
+                  route_eval(&amp;block)
+            %ol#post-6.post-context{ :start => "464", :onclick => "toggle(6);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  route_missing
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                catch
+          %li.code.framework
+            %ol#pre-7.pre-context{ :start => "453", :onclick => "toggle(7);" }
+              %li.pre-context-line
+                %code
+                  {'captures' =&gt; values}
+              %li.pre-context-line
+                %code
+                  else
+              %li.pre-context-line
+                %code
+                  {}
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+                  @params = original_params.merge(params)
+              %li.pre-context-line
+                %code
+                  @block_params = values
+              %li.pre-context-line
+                %code
+            %ol#7.context{ :start => "460", :onclick => "toggle(7);" }
+              %li#context-7.context-line
+                %code
+                  catch(:pass) do
+            %ol#post-7.post-context{ :start => "461", :onclick => "toggle(7);" }
+              %li.post-context-line
+                %code
+                  conditions.each { |cond|
+              %li.post-context-line
+                %code
+                  throw :pass if instance_eval(&amp;cond) == false }
+              %li.post-context-line
+                %code
+                  route_eval(&amp;block)
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                route!
+          %li.code.framework
+            %ol#pre-8.pre-context{ :start => "453", :onclick => "toggle(8);" }
+              %li.pre-context-line
+                %code
+                  {'captures' =&gt; values}
+              %li.pre-context-line
+                %code
+                  else
+              %li.pre-context-line
+                %code
+                  {}
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+                  @params = original_params.merge(params)
+              %li.pre-context-line
+                %code
+                  @block_params = values
+              %li.pre-context-line
+                %code
+            %ol#8.context{ :start => "460", :onclick => "toggle(8);" }
+              %li#context-8.context-line
+                %code
+                  catch(:pass) do
+            %ol#post-8.post-context{ :start => "461", :onclick => "toggle(8);" }
+              %li.post-context-line
+                %code
+                  conditions.each { |cond|
+              %li.post-context-line
+                %code
+                  throw :pass if instance_eval(&amp;cond) == false }
+              %li.post-context-line
+                %code
+                  route_eval(&amp;block)
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                each
+          %li.code.framework
+            %ol#pre-9.pre-context{ :start => "432", :onclick => "toggle(9);" }
+              %li.pre-context-line
+                %code
+                  self.class.filters.each { |block| instance_eval(&amp;block) }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# routes
+              %li.pre-context-line
+                %code
+                  if routes = self.class.routes[@request.request_method]
+              %li.pre-context-line
+                %code
+                  original_params = @params
+              %li.pre-context-line
+                %code
+                  path            = unescape(@request.path_info)
+              %li.pre-context-line
+                %code
+            %ol#9.context{ :start => "439", :onclick => "toggle(9);" }
+              %li#context-9.context-line
+                %code
+                  routes.each do |pattern, keys, conditions, block|
+            %ol#post-9.post-context{ :start => "440", :onclick => "toggle(9);" }
+              %li.post-context-line
+                %code
+                  if match = pattern.match(path)
+              %li.post-context-line
+                %code
+                  values = match.captures.to_a
+              %li.post-context-line
+                %code
+                  params =
+              %li.post-context-line
+                %code
+                  if keys.any?
+              %li.post-context-line
+                %code
+                  keys.zip(values).inject({}) do |hash,(k,v)|
+              %li.post-context-line
+                %code
+                  if k == 'splat'
+              %li.post-context-line
+                %code
+                  (hash[k] ||= []) &lt;&lt; v
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                route!
+          %li.code.framework
+            %ol#pre-10.pre-context{ :start => "432", :onclick => "toggle(10);" }
+              %li.pre-context-line
+                %code
+                  self.class.filters.each { |block| instance_eval(&amp;block) }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# routes
+              %li.pre-context-line
+                %code
+                  if routes = self.class.routes[@request.request_method]
+              %li.pre-context-line
+                %code
+                  original_params = @params
+              %li.pre-context-line
+                %code
+                  path            = unescape(@request.path_info)
+              %li.pre-context-line
+                %code
+            %ol#10.context{ :start => "439", :onclick => "toggle(10);" }
+              %li#context-10.context-line
+                %code
+                  routes.each do |pattern, keys, conditions, block|
+            %ol#post-10.post-context{ :start => "440", :onclick => "toggle(10);" }
+              %li.post-context-line
+                %code
+                  if match = pattern.match(path)
+              %li.post-context-line
+                %code
+                  values = match.captures.to_a
+              %li.post-context-line
+                %code
+                  params =
+              %li.post-context-line
+                %code
+                  if keys.any?
+              %li.post-context-line
+                %code
+                  keys.zip(values).inject({}) do |hash,(k,v)|
+              %li.post-context-line
+                %code
+                  if k == 'splat'
+              %li.post-context-line
+                %code
+                  (hash[k] ||= []) &lt;&lt; v
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                dispatch!
+          %li.code.framework
+            %ol#pre-11.pre-context{ :start => "548", :onclick => "toggle(11);" }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  res
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Dispatch a request with error handling.
+              %li.pre-context-line
+                %code
+                  def dispatch!
+            %ol#11.context{ :start => "555", :onclick => "toggle(11);" }
+              %li#context-11.context-line
+                %code
+                  route!
+            %ol#post-11.post-context{ :start => "556", :onclick => "toggle(11);" }
+              %li.post-context-line
+                %code
+                  rescue NotFound =&gt; boom
+              %li.post-context-line
+                %code
+                  handle_not_found!(boom)
+              %li.post-context-line
+                %code
+                  rescue ::Exception =&gt; boom
+              %li.post-context-line
+                %code
+                  handle_exception!(boom)
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def handle_not_found!(boom)
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                call!
+          %li.code.framework
+            %ol#pre-12.pre-context{ :start => "368", :onclick => "toggle(12);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call!(env)
+              %li.pre-context-line
+                %code
+                  @env      = env
+              %li.pre-context-line
+                %code
+                  @request  = Request.new(env)
+              %li.pre-context-line
+                %code
+                  @response = Response.new
+              %li.pre-context-line
+                %code
+                  @params   = nil
+              %li.pre-context-line
+                %code
+            %ol#12.context{ :start => "375", :onclick => "toggle(12);" }
+              %li#context-12.context-line
+                %code
+                  invoke { dispatch! }
+            %ol#post-12.post-context{ :start => "376", :onclick => "toggle(12);" }
+              %li.post-context-line
+                %code
+                  invoke { error_block!(response.status) }
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  status, header, body = @response.finish
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# Never produce a body on HEAD requests. Do retain the Content-Length
+              %li.post-context-line
+                %code
+                  \# unless it's &quot;0&quot;, in which case we assume it was calculated erroneously
+              %li.post-context-line
+                %code
+                  \# for a manual HEAD response and remove it entirely.
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                instance_eval
+          %li.code.framework
+            %ol#pre-13.pre-context{ :start => "515", :onclick => "toggle(13);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def indifferent_hash
+              %li.pre-context-line
+                %code
+                  Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Run the block with 'throw :halt' support and apply result to the response.
+              %li.pre-context-line
+                %code
+                  def invoke(&amp;block)
+            %ol#13.context{ :start => "522", :onclick => "toggle(13);" }
+              %li#context-13.context-line
+                %code
+                  res = catch(:halt) { instance_eval(&amp;block) }
+            %ol#post-13.post-context{ :start => "523", :onclick => "toggle(13);" }
+              %li.post-context-line
+                %code
+                  return if res.nil?
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  case
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_str)
+              %li.post-context-line
+                %code
+                  @response.body = [res]
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_ary)
+              %li.post-context-line
+                %code
+                  res = res.to_ary
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                invoke
+          %li.code.framework
+            %ol#pre-14.pre-context{ :start => "515", :onclick => "toggle(14);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def indifferent_hash
+              %li.pre-context-line
+                %code
+                  Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Run the block with 'throw :halt' support and apply result to the response.
+              %li.pre-context-line
+                %code
+                  def invoke(&amp;block)
+            %ol#14.context{ :start => "522", :onclick => "toggle(14);" }
+              %li#context-14.context-line
+                %code
+                  res = catch(:halt) { instance_eval(&amp;block) }
+            %ol#post-14.post-context{ :start => "523", :onclick => "toggle(14);" }
+              %li.post-context-line
+                %code
+                  return if res.nil?
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  case
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_str)
+              %li.post-context-line
+                %code
+                  @response.body = [res]
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_ary)
+              %li.post-context-line
+                %code
+                  res = res.to_ary
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                catch
+          %li.code.framework
+            %ol#pre-15.pre-context{ :start => "515", :onclick => "toggle(15);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def indifferent_hash
+              %li.pre-context-line
+                %code
+                  Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Run the block with 'throw :halt' support and apply result to the response.
+              %li.pre-context-line
+                %code
+                  def invoke(&amp;block)
+            %ol#15.context{ :start => "522", :onclick => "toggle(15);" }
+              %li#context-15.context-line
+                %code
+                  res = catch(:halt) { instance_eval(&amp;block) }
+            %ol#post-15.post-context{ :start => "523", :onclick => "toggle(15);" }
+              %li.post-context-line
+                %code
+                  return if res.nil?
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  case
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_str)
+              %li.post-context-line
+                %code
+                  @response.body = [res]
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_ary)
+              %li.post-context-line
+                %code
+                  res = res.to_ary
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                invoke
+          %li.code.framework
+            %ol#pre-16.pre-context{ :start => "515", :onclick => "toggle(16);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def indifferent_hash
+              %li.pre-context-line
+                %code
+                  Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Run the block with 'throw :halt' support and apply result to the response.
+              %li.pre-context-line
+                %code
+                  def invoke(&amp;block)
+            %ol#16.context{ :start => "522", :onclick => "toggle(16);" }
+              %li#context-16.context-line
+                %code
+                  res = catch(:halt) { instance_eval(&amp;block) }
+            %ol#post-16.post-context{ :start => "523", :onclick => "toggle(16);" }
+              %li.post-context-line
+                %code
+                  return if res.nil?
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  case
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_str)
+              %li.post-context-line
+                %code
+                  @response.body = [res]
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_ary)
+              %li.post-context-line
+                %code
+                  res = res.to_ary
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/compat.rb
+            in
+            %code
+              %strong
+                invoke
+          %li.code.framework
+            %ol#pre-17.pre-context{ :start => "131", :onclick => "toggle(17);" }
+              %li.pre-context-line
+                %code
+                  super(engine, template, options, locals, &amp;bk)
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Throwing halt with a Symbol and the to_result convention are
+              %li.pre-context-line
+                %code
+                  \# deprecated. Override the invoke method to detect those types of return
+              %li.pre-context-line
+                %code
+                  \# values.
+              %li.pre-context-line
+                %code
+                  def invoke(&amp;block) #:nodoc:
+            %ol#17.context{ :start => "138", :onclick => "toggle(17);" }
+              %li#context-17.context-line
+                %code
+                  res = super
+            %ol#post-17.post-context{ :start => "139", :onclick => "toggle(17);" }
+              %li.post-context-line
+                %code
+                  case
+              %li.post-context-line
+                %code
+                  when res.kind_of?(Symbol)
+              %li.post-context-line
+                %code
+                  sinatra_warn &quot;Invoking the :\#{res} helper by returning a Symbol is deprecated;&quot;,
+              %li.post-context-line
+                %code
+                  \&quot;call the helper directly instead.&quot;
+              %li.post-context-line
+                %code
+                  @response.body = __send__(res)
+              %li.post-context-line
+                %code
+                  when res.respond_to?(:to_result)
+              %li.post-context-line
+                %code
+                  sinatra_warn &quot;The to_result convention is deprecated.&quot;
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                call!
+          %li.code.framework
+            %ol#pre-18.pre-context{ :start => "368", :onclick => "toggle(18);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call!(env)
+              %li.pre-context-line
+                %code
+                  @env      = env
+              %li.pre-context-line
+                %code
+                  @request  = Request.new(env)
+              %li.pre-context-line
+                %code
+                  @response = Response.new
+              %li.pre-context-line
+                %code
+                  @params   = nil
+              %li.pre-context-line
+                %code
+            %ol#18.context{ :start => "375", :onclick => "toggle(18);" }
+              %li#context-18.context-line
+                %code
+                  invoke { dispatch! }
+            %ol#post-18.post-context{ :start => "376", :onclick => "toggle(18);" }
+              %li.post-context-line
+                %code
+                  invoke { error_block!(response.status) }
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  status, header, body = @response.finish
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# Never produce a body on HEAD requests. Do retain the Content-Length
+              %li.post-context-line
+                %code
+                  \# unless it's &quot;0&quot;, in which case we assume it was calculated erroneously
+              %li.post-context-line
+                %code
+                  \# for a manual HEAD response and remove it entirely.
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.framework
+            %ol#pre-19.pre-context{ :start => "357", :onclick => "toggle(19);" }
+              %li.pre-context-line
+                %code
+                  def initialize(app=nil)
+              %li.pre-context-line
+                %code
+                  @app = app
+              %li.pre-context-line
+                %code
+                  yield self if block_given?
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Rack call interface.
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#19.context{ :start => "364", :onclick => "toggle(19);" }
+              %li#context-19.context-line
+                %code
+                  dup.call!(env)
+            %ol#post-19.post-context{ :start => "365", :onclick => "toggle(19);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  attr_accessor :env, :request, :response, :params
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def call!(env)
+              %li.post-context-line
+                %code
+                  @env      = env
+              %li.post-context-line
+                %code
+                  @request  = Request.new(env)
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/showexceptions.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.system
+            %ol#pre-20.pre-context{ :start => "17", :onclick => "toggle(20);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def initialize(app)
+              %li.pre-context-line
+                %code
+                  @app = app
+              %li.pre-context-line
+                %code
+                  @template = ERB.new(TEMPLATE)
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#20.context{ :start => "24", :onclick => "toggle(20);" }
+              %li#context-20.context-line
+                %code
+                  @app.call(env)
+            %ol#post-20.post-context{ :start => "25", :onclick => "toggle(20);" }
+              %li.post-context-line
+                %code
+                  rescue StandardError, LoadError, SyntaxError =&gt; e
+              %li.post-context-line
+                %code
+                  backtrace = pretty(env, e)
+              %li.post-context-line
+                %code
+                  [500,
+              %li.post-context-line
+                %code
+                  {&quot;Content-Type&quot; =&gt; &quot;text/html&quot;,
+              %li.post-context-line
+                %code
+                  \&quot;Content-Length&quot; =&gt; backtrace.join.size.to_s},
+              %li.post-context-line
+                %code
+                  backtrace]
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.system
+            %ol#pre-21.pre-context{ :start => "17", :onclick => "toggle(21);" }
+              %li.pre-context-line
+                %code
+                  method = method.to_s.upcase
+              %li.pre-context-line
+                %code
+                  if HTTP_METHODS.include?(method)
+              %li.pre-context-line
+                %code
+                  env[&quot;rack.methodoverride.original_method&quot;] = env[&quot;REQUEST_METHOD&quot;]
+              %li.pre-context-line
+                %code
+                  env[&quot;REQUEST_METHOD&quot;] = method
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+            %ol#21.context{ :start => "24", :onclick => "toggle(21);" }
+              %li#context-21.context-line
+                %code
+                  @app.call(env)
+            %ol#post-21.post-context{ :start => "25", :onclick => "toggle(21);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/commonlogger.rb
+            in
+            %code
+              %strong
+                _call
+          %li.code.system
+            %ol#pre-22.pre-context{ :start => "13", :onclick => "toggle(22);" }
+              %li.pre-context-line
+                %code
+                  dup._call(env)
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def _call(env)
+              %li.pre-context-line
+                %code
+                  @env = env
+              %li.pre-context-line
+                %code
+                  @logger ||= self
+              %li.pre-context-line
+                %code
+                  @time = Time.now
+            %ol#22.context{ :start => "20", :onclick => "toggle(22);" }
+              %li#context-22.context-line
+                %code
+                  @status, @header, @body = @app.call(env)
+            %ol#post-22.post-context{ :start => "21", :onclick => "toggle(22);" }
+              %li.post-context-line
+                %code
+                  [@status, @header, self]
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def close
+              %li.post-context-line
+                %code
+                  @body.close if @body.respond_to? :close
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/commonlogger.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.system
+            %ol#pre-23.pre-context{ :start => "6", :onclick => "toggle(23);" }
+              %li.pre-context-line
+                %code
+                  class CommonLogger
+              %li.pre-context-line
+                %code
+                  def initialize(app, logger=nil)
+              %li.pre-context-line
+                %code
+                  @app = app
+              %li.pre-context-line
+                %code
+                  @logger = logger
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#23.context{ :start => "13", :onclick => "toggle(23);" }
+              %li#context-23.context-line
+                %code
+                  dup._call(env)
+            %ol#post-23.post-context{ :start => "14", :onclick => "toggle(23);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def _call(env)
+              %li.post-context-line
+                %code
+                  @env = env
+              %li.post-context-line
+                %code
+                  @logger ||= self
+              %li.post-context-line
+                %code
+                  @time = Time.now
+              %li.post-context-line
+                %code
+                  @status, @header, @body = @app.call(env)
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.framework
+            %ol#pre-24.pre-context{ :start => "891", :onclick => "toggle(24);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  @middleware.each { |c,a,b| builder.use(c, *a, &amp;b) }
+              %li.pre-context-line
+                %code
+                  builder.run super
+              %li.pre-context-line
+                %code
+                  builder.to_app
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#24.context{ :start => "898", :onclick => "toggle(24);" }
+              %li#context-24.context-line
+                %code
+                  synchronize { prototype.call(env) }
+            %ol#post-24.post-context{ :start => "899", :onclick => "toggle(24);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def reset!(base=superclass)
+              %li.post-context-line
+                %code
+                  @routes     = base.dupe_routes
+              %li.post-context-line
+                %code
+                  @templates  = base.templates.dup
+              %li.post-context-line
+                %code
+                  @conditions = []
+              %li.post-context-line
+                %code
+                  @filters    = base.filters.dup
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                synchronize
+          %li.code.framework
+            %ol#pre-25.pre-context{ :start => "936", :onclick => "toggle(25);" }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  @@mutex = Mutex.new
+              %li.pre-context-line
+                %code
+                  def synchronize(&amp;block)
+              %li.pre-context-line
+                %code
+                  if lock?
+              %li.pre-context-line
+                %code
+                  @@mutex.synchronize(&amp;block)
+              %li.pre-context-line
+                %code
+                  else
+            %ol#25.context{ :start => "943", :onclick => "toggle(25);" }
+              %li#context-25.context-line
+                %code
+                  yield
+            %ol#post-25.post-context{ :start => "944", :onclick => "toggle(25);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def metadef(message, &amp;block)
+              %li.post-context-line
+                %code
+                  (class &lt;&lt; self; self; end).
+              %li.post-context-line
+                %code
+                  send :define_method, message, &amp;block
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.framework
+            %ol#pre-26.pre-context{ :start => "891", :onclick => "toggle(26);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  @middleware.each { |c,a,b| builder.use(c, *a, &amp;b) }
+              %li.pre-context-line
+                %code
+                  builder.run super
+              %li.pre-context-line
+                %code
+                  builder.to_app
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#26.context{ :start => "898", :onclick => "toggle(26);" }
+              %li#context-26.context-line
+                %code
+                  synchronize { prototype.call(env) }
+            %ol#post-26.post-context{ :start => "899", :onclick => "toggle(26);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def reset!(base=superclass)
+              %li.post-context-line
+                %code
+                  @routes     = base.dupe_routes
+              %li.post-context-line
+                %code
+                  @templates  = base.templates.dup
+              %li.post-context-line
+                %code
+                  @conditions = []
+              %li.post-context-line
+                %code
+                  @filters    = base.filters.dup
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.system
+            %ol#pre-27.pre-context{ :start => "6", :onclick => "toggle(27);" }
+              %li.pre-context-line
+                %code
+                  include Rack::Utils
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def initialize(app)
+              %li.pre-context-line
+                %code
+                  @app = app
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#27.context{ :start => "13", :onclick => "toggle(27);" }
+              %li#context-27.context-line
+                %code
+                  status, headers, body = @app.call(env)
+            %ol#post-27.post-context{ :start => "14", :onclick => "toggle(27);" }
+              %li.post-context-line
+                %code
+                  headers = HeaderHash.new(headers)
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  if !STATUS_WITH_NO_ENTITY_BODY.include?(status) &amp;&amp;
+              %li.post-context-line
+                %code
+                  \!headers['Content-Length'] &amp;&amp;
+              %li.post-context-line
+                %code
+                  \!headers['Transfer-Encoding'] &amp;&amp;
+              %li.post-context-line
+                %code
+                  (body.respond_to?(:to_ary) || body.respond_to?(:to_str))
+              %li.post-context-line
+                %code
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb
+            in
+            %code
+              %strong
+                call
+          %li.code.system
+            %ol#pre-28.pre-context{ :start => "8", :onclick => "toggle(28);" }
+              %li.pre-context-line
+                %code
+                  include Rack::Utils
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def initialize(app)
+              %li.pre-context-line
+                %code
+                  @app = app
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  def call(env)
+            %ol#28.context{ :start => "15", :onclick => "toggle(28);" }
+              %li#context-28.context-line
+                %code
+                  status, headers, body = @app.call(env)
+            %ol#post-28.post-context{ :start => "16", :onclick => "toggle(28);" }
+              %li.post-context-line
+                %code
+                  headers = HeaderHash.new(headers)
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  if env['HTTP_VERSION'] == 'HTTP/1.0' ||
+              %li.post-context-line
+                %code
+                  STATUS_WITH_NO_ENTITY_BODY.include?(status) ||
+              %li.post-context-line
+                %code
+                  headers['Content-Length'] ||
+              %li.post-context-line
+                %code
+                  headers['Transfer-Encoding']
+              %li.post-context-line
+                %code
+                  [status, headers.to_hash, body]
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/connection.rb
+            in
+            %code
+              %strong
+                pre_process
+          %li.code.system
+            %ol#pre-29.pre-context{ :start => "69", :onclick => "toggle(29);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# When we're under a non-async framework like rails, we can still spawn
+              %li.pre-context-line
+                %code
+                  \# off async responses using the callback info, so there's little point
+              %li.pre-context-line
+                %code
+                  \# in removing this.
+              %li.pre-context-line
+                %code
+                  response = AsyncResponse
+              %li.pre-context-line
+                %code
+                  catch(:async) do
+              %li.pre-context-line
+                %code
+                  \# Process the request calling the Rack adapter
+            %ol#29.context{ :start => "76", :onclick => "toggle(29);" }
+              %li#context-29.context-line
+                %code
+                  response = @app.call(@request.env)
+            %ol#post-29.post-context{ :start => "77", :onclick => "toggle(29);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  response
+              %li.post-context-line
+                %code
+                  rescue Exception
+              %li.post-context-line
+                %code
+                  handle_error
+              %li.post-context-line
+                %code
+                  terminate_request
+              %li.post-context-line
+                %code
+                  nil # Signal to post_process that the request could not be processed
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/connection.rb
+            in
+            %code
+              %strong
+                catch
+          %li.code.system
+            %ol#pre-30.pre-context{ :start => "67", :onclick => "toggle(30);" }
+              %li.pre-context-line
+                %code
+                  \# callback is no longer referenced, so be tidy!
+              %li.pre-context-line
+                %code
+                  @request.async_callback = method(:post_process)
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# When we're under a non-async framework like rails, we can still spawn
+              %li.pre-context-line
+                %code
+                  \# off async responses using the callback info, so there's little point
+              %li.pre-context-line
+                %code
+                  \# in removing this.
+              %li.pre-context-line
+                %code
+                  response = AsyncResponse
+            %ol#30.context{ :start => "74", :onclick => "toggle(30);" }
+              %li#context-30.context-line
+                %code
+                  catch(:async) do
+            %ol#post-30.post-context{ :start => "75", :onclick => "toggle(30);" }
+              %li.post-context-line
+                %code
+                  \# Process the request calling the Rack adapter
+              %li.post-context-line
+                %code
+                  response = @app.call(@request.env)
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  response
+              %li.post-context-line
+                %code
+                  rescue Exception
+              %li.post-context-line
+                %code
+                  handle_error
+              %li.post-context-line
+                %code
+                  terminate_request
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/connection.rb
+            in
+            %code
+              %strong
+                pre_process
+          %li.code.system
+            %ol#pre-31.pre-context{ :start => "67", :onclick => "toggle(31);" }
+              %li.pre-context-line
+                %code
+                  \# callback is no longer referenced, so be tidy!
+              %li.pre-context-line
+                %code
+                  @request.async_callback = method(:post_process)
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# When we're under a non-async framework like rails, we can still spawn
+              %li.pre-context-line
+                %code
+                  \# off async responses using the callback info, so there's little point
+              %li.pre-context-line
+                %code
+                  \# in removing this.
+              %li.pre-context-line
+                %code
+                  response = AsyncResponse
+            %ol#31.context{ :start => "74", :onclick => "toggle(31);" }
+              %li#context-31.context-line
+                %code
+                  catch(:async) do
+            %ol#post-31.post-context{ :start => "75", :onclick => "toggle(31);" }
+              %li.post-context-line
+                %code
+                  \# Process the request calling the Rack adapter
+              %li.post-context-line
+                %code
+                  response = @app.call(@request.env)
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  response
+              %li.post-context-line
+                %code
+                  rescue Exception
+              %li.post-context-line
+                %code
+                  handle_error
+              %li.post-context-line
+                %code
+                  terminate_request
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/connection.rb
+            in
+            %code
+              %strong
+                process
+          %li.code.system
+            %ol#pre-32.pre-context{ :start => "50", :onclick => "toggle(32);" }
+              %li.pre-context-line
+                %code
+                  \# is ready to be processed.
+              %li.pre-context-line
+                %code
+                  def process
+              %li.pre-context-line
+                %code
+                  if threaded?
+              %li.pre-context-line
+                %code
+                  @request.threaded = true
+              %li.pre-context-line
+                %code
+                  EventMachine.defer(method(:pre_process), method(:post_process))
+              %li.pre-context-line
+                %code
+                  else
+              %li.pre-context-line
+                %code
+                  @request.threaded = false
+            %ol#32.context{ :start => "57", :onclick => "toggle(32);" }
+              %li#context-32.context-line
+                %code
+                  post_process(pre_process)
+            %ol#post-32.post-context{ :start => "58", :onclick => "toggle(32);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  def pre_process
+              %li.post-context-line
+                %code
+                  \# Add client info to the request env
+              %li.post-context-line
+                %code
+                  @request.remote_address = remote_address
+              %li.post-context-line
+                %code
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/connection.rb
+            in
+            %code
+              %strong
+                receive_data
+          %li.code.system
+            %ol#pre-33.pre-context{ :start => "35", :onclick => "toggle(33);" }
+              %li.pre-context-line
+                %code
+                  @request  = Request.new
+              %li.pre-context-line
+                %code
+                  @response = Response.new
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Called when data is received from the client.
+              %li.pre-context-line
+                %code
+                  def receive_data(data)
+              %li.pre-context-line
+                %code
+                  trace { data }
+            %ol#33.context{ :start => "42", :onclick => "toggle(33);" }
+              %li#context-33.context-line
+                %code
+                  process if @request.parse(data)
+            %ol#post-33.post-context{ :start => "43", :onclick => "toggle(33);" }
+              %li.post-context-line
+                %code
+                  rescue InvalidRequest =&gt; e
+              %li.post-context-line
+                %code
+                  log &quot;!! Invalid request&quot;
+              %li.post-context-line
+                %code
+                  log_error e
+              %li.post-context-line
+                %code
+                  close_connection
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# Called when all data was received and the request
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/eventmachine-0.12.8/lib/eventmachine.rb
+            in
+            %code
+              %strong
+                run_machine
+          %li.code.system
+            %ol#pre-34.pre-context{ :start => "235", :onclick => "toggle(34);" }
+              %li.pre-context-line
+                %code
+                  @reactor_running = true
+              %li.pre-context-line
+                %code
+                  initialize_event_machine
+              %li.pre-context-line
+                %code
+                  (b = blk || block) and add_timer(0, b)
+              %li.pre-context-line
+                %code
+                  if @next_tick_queue &amp;&amp; !@next_tick_queue.empty?
+              %li.pre-context-line
+                %code
+                  add_timer(0) { signal_loopbreak }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+                  @reactor_thread = Thread.current
+            %ol#34.context{ :start => "242", :onclick => "toggle(34);" }
+              %li#context-34.context-line
+                %code
+                  run_machine
+            %ol#post-34.post-context{ :start => "243", :onclick => "toggle(34);" }
+              %li.post-context-line
+                %code
+                  ensure
+              %li.post-context-line
+                %code
+                  begin
+              %li.post-context-line
+                %code
+                  release_machine
+              %li.post-context-line
+                %code
+                  ensure
+              %li.post-context-line
+                %code
+                  if @threadpool
+              %li.post-context-line
+                %code
+                  @threadpool.each { |t| t.exit }
+              %li.post-context-line
+                %code
+                  @threadpool.each { |t| t.kill! if t.alive? }
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/eventmachine-0.12.8/lib/eventmachine.rb
+            in
+            %code
+              %strong
+                run
+          %li.code.system
+            %ol#pre-35.pre-context{ :start => "235", :onclick => "toggle(35);" }
+              %li.pre-context-line
+                %code
+                  @reactor_running = true
+              %li.pre-context-line
+                %code
+                  initialize_event_machine
+              %li.pre-context-line
+                %code
+                  (b = blk || block) and add_timer(0, b)
+              %li.pre-context-line
+                %code
+                  if @next_tick_queue &amp;&amp; !@next_tick_queue.empty?
+              %li.pre-context-line
+                %code
+                  add_timer(0) { signal_loopbreak }
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+                  @reactor_thread = Thread.current
+            %ol#35.context{ :start => "242", :onclick => "toggle(35);" }
+              %li#context-35.context-line
+                %code
+                  run_machine
+            %ol#post-35.post-context{ :start => "243", :onclick => "toggle(35);" }
+              %li.post-context-line
+                %code
+                  ensure
+              %li.post-context-line
+                %code
+                  begin
+              %li.post-context-line
+                %code
+                  release_machine
+              %li.post-context-line
+                %code
+                  ensure
+              %li.post-context-line
+                %code
+                  if @threadpool
+              %li.post-context-line
+                %code
+                  @threadpool.each { |t| t.exit }
+              %li.post-context-line
+                %code
+                  @threadpool.each { |t| t.kill! if t.alive? }
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/backends/base.rb
+            in
+            %code
+              %strong
+                start
+          %li.code.system
+            %ol#pre-36.pre-context{ :start => "50", :onclick => "toggle(36);" }
+              %li.pre-context-line
+                %code
+                  @running = true
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  \# Allow for early run up of eventmachine.
+              %li.pre-context-line
+                %code
+                  if EventMachine.reactor_running?
+              %li.pre-context-line
+                %code
+                  starter.call
+              %li.pre-context-line
+                %code
+                  else
+            %ol#36.context{ :start => "57", :onclick => "toggle(36);" }
+              %li#context-36.context-line
+                %code
+                  EventMachine.run(&amp;starter)
+            %ol#post-36.post-context{ :start => "58", :onclick => "toggle(36);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# Stop of the backend from accepting new connections.
+              %li.post-context-line
+                %code
+                  def stop
+              %li.post-context-line
+                %code
+                  @running  = false
+              %li.post-context-line
+                %code
+                  @stopping = true
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/thin-1.2.2/lib/thin/server.rb
+            in
+            %code
+              %strong
+                start
+          %li.code.system
+            %ol#pre-37.pre-context{ :start => "149", :onclick => "toggle(37);" }
+              %li.pre-context-line
+                %code
+                  log   &quot;&gt;&gt; Thin web server (v\#{VERSION::STRING} codename \#{VERSION::CODENAME})&quot;
+              %li.pre-context-line
+                %code
+                  debug &quot;&gt;&gt; Debugging ON&quot;
+              %li.pre-context-line
+                %code
+                  trace &quot;&gt;&gt; Tracing ON&quot;
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  log &quot;&gt;&gt; Maximum connections set to \#{@backend.maximum_connections}&quot;
+              %li.pre-context-line
+                %code
+                  log &quot;&gt;&gt; Listening on \#{@backend}, CTRL+C to stop&quot;
+              %li.pre-context-line
+                %code
+            %ol#37.context{ :start => "156", :onclick => "toggle(37);" }
+              %li#context-37.context-line
+                %code
+                  @backend.start
+            %ol#post-37.post-context{ :start => "157", :onclick => "toggle(37);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  alias :start! :start
+              %li.post-context-line
+                %code
+              %li.post-context-line
+                %code
+                  \# == Gracefull shutdown
+              %li.post-context-line
+                %code
+                  \# Stops the server after processing all current connections.
+              %li.post-context-line
+                %code
+                  \# As soon as this method is called, the server stops accepting
+              %li.post-context-line
+                %code
+                  \# new requests and wait for all current connections to finish.
+            .clear
+          %li.frame-info.system
+            %code
+              \/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/thin.rb
+            in
+            %code
+              %strong
+                run
+          %li.code.system
+            %ol#pre-38.pre-context{ :start => "7", :onclick => "toggle(38);" }
+              %li.pre-context-line
+                %code
+                  class Thin
+              %li.pre-context-line
+                %code
+                  def self.run(app, options={})
+              %li.pre-context-line
+                %code
+                  app = Rack::Chunked.new(Rack::ContentLength.new(app))
+              %li.pre-context-line
+                %code
+                  server = ::Thin::Server.new(options[:Host] || '0.0.0.0',
+              %li.pre-context-line
+                %code
+                  options[:Port] || 8080,
+              %li.pre-context-line
+                %code
+                  app)
+              %li.pre-context-line
+                %code
+                  yield server if block_given?
+            %ol#38.context{ :start => "14", :onclick => "toggle(38);" }
+              %li#context-38.context-line
+                %code
+                  server.start
+            %ol#post-38.post-context{ :start => "15", :onclick => "toggle(38);" }
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/base.rb
+            in
+            %code
+              %strong
+                run!
+          %li.code.framework
+            %ol#pre-39.pre-context{ :start => "859", :onclick => "toggle(39);" }
+              %li.pre-context-line
+                %code
+                  \# Thin, Mongrel or WEBrick (in that order)
+              %li.pre-context-line
+                %code
+                  def run!(options={})
+              %li.pre-context-line
+                %code
+                  set options
+              %li.pre-context-line
+                %code
+                  handler      = detect_rack_handler
+              %li.pre-context-line
+                %code
+                  handler_name = handler.name.gsub(/.*::/, '')
+              %li.pre-context-line
+                %code
+                  puts &quot;== Sinatra/\#{Sinatra::VERSION} has taken the stage &quot; +
+              %li.pre-context-line
+                %code
+                  \&quot;on \#{port} for \#{environment} with backup from \#{handler_name}&quot; unless handler_name =~/cgi/i
+            %ol#39.context{ :start => "866", :onclick => "toggle(39);" }
+              %li#context-39.context-line
+                %code
+                  handler.run self, :Host =&gt; host, :Port =&gt; port do |server|
+            %ol#post-39.post-context{ :start => "867", :onclick => "toggle(39);" }
+              %li.post-context-line
+                %code
+                  trap(:INT) do
+              %li.post-context-line
+                %code
+                  \## Use thins' hard #stop! if available, otherwise just #stop
+              %li.post-context-line
+                %code
+                  server.respond_to?(:stop!) ? server.stop! : server.stop
+              %li.post-context-line
+                %code
+                  puts &quot;\n== Sinatra has ended his set (crowd applauds)&quot; unless handler_name =~/cgi/i
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  end
+              %li.post-context-line
+                %code
+                  rescue Errno::EADDRINUSE =&gt; e
+            .clear
+          %li.frame-info.framework
+            %code
+              \/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib/sinatra/main.rb
+            in
+            %code
+              %strong
+                nil
+          %li.code.framework
+            %ol#pre-40.pre-context{ :start => "27", :onclick => "toggle(40);" }
+              %li.pre-context-line
+                %code
+                  def mime(ext, type)
+              %li.pre-context-line
+                %code
+                  ext = &quot;.\#{ext}&quot; unless ext.to_s[0] == ?.
+              %li.pre-context-line
+                %code
+                  Rack::Mime::MIME_TYPES[ext.to_s] = type
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  at_exit do
+              %li.pre-context-line
+                %code
+                  raise $! if $!
+            %ol#40.context{ :start => "34", :onclick => "toggle(40);" }
+              %li#context-40.context-line
+                %code
+                  Sinatra::Application.run! if Sinatra::Application.run?
+            %ol#post-40.post-context{ :start => "35", :onclick => "toggle(40);" }
+              %li.post-context-line
+                %code
+                  end
+            .clear
+          %li.frame-info.app
+            %code
+              tiny_ci.rb
+            in
+            %code
+              %strong
+                nil
+          %li.code.app
+            %ol#pre-41.pre-context{ :start => "15", :onclick => "toggle(41);" }
+              %li.pre-context-line
+                %code
+              %li.pre-context-line
+                %code
+                  get '/projects/:project_name' do
+              %li.pre-context-line
+                %code
+                  @project = params[:project_name]
+              %li.pre-context-line
+                %code
+                  @builds = Dir.glob(&quot;builds/\#{params[:project_name]}/*&quot;)
+              %li.pre-context-line
+                %code
+                  haml :project
+              %li.pre-context-line
+                %code
+                  end
+              %li.pre-context-line
+                %code
+            %ol#41.context{ :start => "22", :onclick => "toggle(41);" }
+              %li#context-41.context-line
+                %code
+                  get '/projects/:project/:build' do
+            %ol#post-41.post-context{ :start => "23", :onclick => "toggle(41);" }
+              %li.post-context-line
+                %code
+                  @project = params[:project]
+              %li.post-context-line
+                %code
+                  @build = params[:build]
+              %li.post-context-line
+                %code
+                  haml :build
+              %li.post-context-line
+                %code
+                  end
+            .clear
+      /
+        \/BACKTRACE
+      #get
+        %h3#get-info
+          GET
+        %p.no-data
+          No GET data.
+        .clear
+      /
+        \/GET
+      #post
+        %h3#post-info
+          POST
+        %p.no-data
+          No POST data.
+        .clear
+      /
+        \/POST
+      #cookies
+        %h3#cookie-info
+          COOKIES
+        %p.no-data
+          No cookie data.
+        .clear
+      /
+        \/COOKIES
+      #rack
+        %h3#env-info
+          Rack ENV
+        %table.req
+          %tr
+            %th
+              Variable
+            %th
+              Value
+          %tr
+            %td
+              GATEWAY_INTERFACE
+            %td.code
+              %div
+                CGI/1.2
+          %tr
+            %td
+              HTTP_ACCEPT
+            %td.code
+              %div
+                application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+          %tr
+            %td
+              HTTP_ACCEPT_ENCODING
+            %td.code
+              %div
+                gzip, deflate
+          %tr
+            %td
+              HTTP_ACCEPT_LANGUAGE
+            %td.code
+              %div
+                en-us
+          %tr
+            %td
+              HTTP_CONNECTION
+            %td.code
+              %div
+                keep-alive
+          %tr
+            %td
+              HTTP_HOST
+            %td.code
+              %div
+                0.0.0.0:4567
+          %tr
+            %td
+              HTTP_USER_AGENT
+            %td.code
+              %div
+                Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.21.8 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10
+          %tr
+            %td
+              HTTP_VERSION
+            %td.code
+              %div
+                HTTP/1.1
+          %tr
+            %td
+              PATH_INFO
+            %td.code
+              %div
+                \/
+          %tr
+            %td
+              QUERY_STRING
+            %td.code
+              %div
+          %tr
+            %td
+              REMOTE_ADDR
+            %td.code
+              %div
+                127.0.0.1
+          %tr
+            %td
+              REQUEST_METHOD
+            %td.code
+              %div
+                GET
+          %tr
+            %td
+              REQUEST_PATH
+            %td.code
+              %div
+                \/
+          %tr
+            %td
+              REQUEST_URI
+            %td.code
+              %div
+                \/
+          %tr
+            %td
+              SCRIPT_NAME
+            %td.code
+              %div
+          %tr
+            %td
+              SERVER_NAME
+            %td.code
+              %div
+                0.0.0.0
+          %tr
+            %td
+              SERVER_PORT
+            %td.code
+              %div
+                4567
+          %tr
+            %td
+              SERVER_PROTOCOL
+            %td.code
+              %div
+                HTTP/1.1
+          %tr
+            %td
+              SERVER_SOFTWARE
+            %td.code
+              %div
+                thin 1.2.2 codename I Find Your Lack of Sauce Disturbing
+          %tr
+            %td
+              async.callback
+            %td.code
+              %div
+                \#&lt;Method: Thin::Connection#post_process&gt;
+          %tr
+            %td
+              async.close
+            %td.code
+              %div
+                \#&lt;EventMachine::DefaultDeferrable:0x101c97c08&gt;
+          %tr
+            %td
+              rack.errors
+            %td.code
+              %div
+                \#&lt;IO:0x100163b80&gt;
+          %tr
+            %td
+              rack.input
+            %td.code
+              %div
+                \#&lt;StringIO:0x101ca70e0&gt;
+          %tr
+            %td
+              rack.multiprocess
+            %td.code
+              %div
+                false
+          %tr
+            %td
+              rack.multithread
+            %td.code
+              %div
+                false
+          %tr
+            %td
+              rack.request
+            %td.code
+              %div
+                \#&lt;Rack::Request:0x101c45958 @env={&quot;sinatra.error&quot;=&gt;#&lt;RuntimeError: HELL&gt;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;0.0.0.0:4567&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;0.0.0.0&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.21.8 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10&quot;, &quot;REQUEST_PATH&quot;=&gt;&quot;/&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;HTTP_ACCEPT_LANGUAGE&quot;=&gt;&quot;en-us&quot;, &quot;rack.errors&quot;=&gt;#&lt;IO:0x100163b80&gt;, &quot;async.callback&quot;=&gt;#&lt;Method: Thin::Connection#post_process&gt;, &quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/&quot;, &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 0], &quot;SERVER_SOFTWARE&quot;=&gt;&quot;thin 1.2.2 codename I Find Your Lack of Sauce Disturbing&quot;, &quot;rack.request&quot;=&gt;#&lt;Rack::Request:0x101c45958 ...&gt;, &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.1&quot;, &quot;rack.multithread&quot;=&gt;false, &quot;rack.request.form_vars&quot;=&gt;&quot;&quot;, &quot;REQUEST_URI&quot;=&gt;&quot;/&quot;, &quot;rack.multiprocess&quot;=&gt;false, &quot;rack.request.form_input&quot;=&gt;#&lt;StringIO:0x101ca70e0&gt;, &quot;rack.request.query_hash&quot;=&gt;{}, &quot;SERVER_PORT&quot;=&gt;&quot;4567&quot;, &quot;async.close&quot;=&gt;#&lt;EventMachine::DefaultDeferrable:0x101c97c08&gt;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;, &quot;rack.request.form_hash&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;GATEWAY_INTERFACE&quot;=&gt;&quot;CGI/1.2&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;keep-alive&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;rack.input&quot;=&gt;#&lt;StringIO:0x101ca70e0&gt;}&gt;
+          %tr
+            %td
+              rack.request.form_hash
+            %td.code
+              %div
+                {}
+          %tr
+            %td
+              rack.request.form_input
+            %td.code
+              %div
+                \#&lt;StringIO:0x101ca70e0&gt;
+          %tr
+            %td
+              rack.request.form_vars
+            %td.code
+              %div
+          %tr
+            %td
+              rack.request.query_hash
+            %td.code
+              %div
+                {}
+          %tr
+            %td
+              rack.request.query_string
+            %td.code
+              %div
+          %tr
+            %td
+              rack.run_once
+            %td.code
+              %div
+                false
+          %tr
+            %td
+              rack.url_scheme
+            %td.code
+              %div
+                http
+          %tr
+            %td
+              rack.version
+            %td.code
+              %div
+                [1, 0]
+          %tr
+            %td
+              sinatra.error
+            %td.code
+              %div
+                \#&lt;RuntimeError: HELL&gt;
+        .clear
+      /
+        \/RACK ENV
+      %p#explanation
+        You're seeing this error because you use you have
+        enabled the
+        %code
+          show_exceptions
+        option.
+    /
+      \/WRAP
