@@ -12,42 +12,7 @@
       %h3
         %a{ :href => "/" }
           Home
-      %table
-        = @projects.each do |project|
-          %tr
-            %td
-              %img{ :src => "/images/good.png" }
-            %td
-              %a{ :href => "/#{project.name}" }
-                = project.name
     #content
-      %h3
-        Panda Project
-      %p
-      %table
-        %tr
-          %td
-            %img{ :src => "/images/good.png" }
-          %td
-            %a{ :href => "" }
-              Build 12
-          %td
-            10 minutes ago
-        %tr
-          %td
-            %img{ :src => "/images/bad.png" }
-          %td
-            %a{ :href => "" }
-              Build 11
-          %td
-            1 hour ago
-        %tr
-          %td
-            %img{ :src => "/images/green.png" }
-          %td
-            %a{ :href => "" }
-              Build 10
-          %td
-            1 day ago
+      = yield
     #footer
-      Last ran 2 min. ago
+      In six features or less, we'll build your software.

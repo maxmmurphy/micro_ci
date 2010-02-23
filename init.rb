@@ -3,7 +3,7 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'yaml'
-
+SINATRA_ROOT = Dir.pwd
 
 Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each {|lib| require lib }
 
@@ -13,13 +13,13 @@ Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each {|lib| require lib }
   end
 
   get '/projects/:project_name' do
-    @project = params[:project_name]
-    @builds = Dir.glob("builds/#{params[:project_name]}/*")
+    project_name = params[:project_name]
+    @builds = TinyCI.builds(project_name).reverse
     haml :project
   end
 
-  get '/projects/:project/:build' do
-    @project = params[:project]
-    @build = params[:build]
+  get '/projects/:project_name/:build' do
+    project_name = params[:project_name]
+    @build = Build.new(params[:build], project_name)
     haml :build
   end
