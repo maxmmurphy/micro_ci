@@ -2,7 +2,7 @@
   Builds
 %hr
 %table
-  - @builds.each do |build|
+  - @builds.reverse.each do |build|
     %tr
       %td
         %img{ :src => "/images/#{build.result}.png" }
