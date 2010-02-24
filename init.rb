@@ -14,7 +14,7 @@ Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each {|lib| require lib }
 
   get '/projects/:project_name' do
     project_name = params[:project_name]
-    @builds = TinyCI.builds(project_name).reverse
+    @builds = TinyCI.builds(project_name).sort! {|a,b| b.build_number <=> a.build_number}
     haml :project
   end
 

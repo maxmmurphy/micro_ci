@@ -39,7 +39,7 @@ class TinyCI
       filename = "#{SINATRA_ROOT}/builds/#{project.name}/" + Time.now.strftime("%Y-%m-%d-%H%M%S") + '.build_log'
       results.each do |result| 
         File.open(filename, 'a')  do |f|
-          f.write("=======================#{result.test_case}================================== \n")
+          f.write("=============#{result.test_case}-#{result.success ?  "SUCCESS" : "FAILED"}==================== \n")
           f.write(result.output)
           f.write("\n")
         end
