@@ -3,10 +3,6 @@ class TinyCI
     def projects
       YAML::load(File.open(SINATRA_ROOT + '/config/projects.yml')).keys.map {|pname| Project.new(pname)}
     end
-    
-    def builds(project_name)
-      Dir.glob(SINATRA_ROOT + "/builds/#{project_name}/*").map{|b| Build.new(File.basename(b, ".build_log"), project_name)}
-    end
   
     def running?
       IO.popen("ps") {|io| @running = io.read}
@@ -27,7 +23,6 @@ class TinyCI
         end
       end
     end
-
 
     def build_it(project)
       results = run_test_cases(project)
