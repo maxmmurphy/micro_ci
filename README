@@ -23,3 +23,4 @@ git clone git://github.com/maxmmurphy/micro_ci.git
 
 * can't run 2 or more instances of MicroCI on the same server
 * need to clone repo for each separate branch you want to test
+* will_paginate agnostic branch is frozen to vendor/gems until a better solution arises.
