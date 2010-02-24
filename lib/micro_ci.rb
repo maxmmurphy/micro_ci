@@ -5,13 +5,10 @@ class MicroCI
     end
   
     def running?
-      IO.popen("ps") {|io| @running = io.read}
-      is_running = @running.include?("micro_ci/../projects")
-      is_running
+      File::exists?("#{SINATRA_ROOT}/running.txt")
     end
     
     def git_poller
-      return if running?
       projects.each do |project|
         IO.popen("cd #{project.path};git pull") {|io| @output = io.read }
         if @output.include?("Already up-to-date.")

@@ -13,4 +13,8 @@
     #content
       = yield
     #footer
-      In six features or less, we'll build your software.
+      %div{:style => 'float: left;'}
+        %strong
+          = "Status: #{MicroCI.running? ? 'RUNNING' : "IDLE"}"
+      %div{:style => 'text-align: right;'}
+        In six features or less, we'll build your software.
