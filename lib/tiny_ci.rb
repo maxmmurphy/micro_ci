@@ -1,7 +1,7 @@
 class TinyCI
   class << self
     def projects
-      YAML::load(File.open(SINATRA_ROOT + '/config/projects.yml')).keys.map {|pname| Project.new(pname)}
+      PROJECT_CONFIG.keys.map {|pname| Project.new(pname)}
     end
   
     def running?
@@ -27,7 +27,7 @@ class TinyCI
     def build_it(project)
       results = run_test_cases(project)
       write_output(results, project)
-      #notify(results)
+      project.notify
     end
 
     def write_output(results, project)

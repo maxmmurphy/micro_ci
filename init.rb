@@ -1,11 +1,9 @@
-#!/usr/bin/env ruby                                                                                                    
+#!/usr/bin/env ruby
+SINATRA_ROOT = Dir.pwd + '/' + File.dirname(__FILE__)                                                                                                 
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'yaml'
-SINATRA_ROOT = Dir.pwd + '/' + File.dirname(__FILE__)
-
-Dir[File.join(File.dirname(__FILE__), 'lib', '*.rb')].each {|lib| require lib }
+require 'config'
 
   get '/' do
     @projects = TinyCI.projects
