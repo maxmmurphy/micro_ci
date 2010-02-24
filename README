@@ -8,6 +8,7 @@ git clone git://github.com/maxmmurphy/tiny_ci.git
 
 * Copy the config/projects.yml.example and modify it as needed save it as config/projects.yml
 * Make a projects/ directory at the same level as your tiny_ci application
+* Make a builds/project_name directory that matches your project config
 * clone the projects you added to the projects.yml making sure to keep the name the same as in the config
 * Make sure the rake tasks you want to run work in the project, ie set up the necessary gems, db, etc
 * Ready to go! 
