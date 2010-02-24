@@ -12,6 +12,6 @@ class Project
   end
   
   def last_build_result
-    TinyCI.builds(self.name).last.result
+    TinyCI.builds(self.name).last.result rescue 'UNKNOWN'
   end
 end
