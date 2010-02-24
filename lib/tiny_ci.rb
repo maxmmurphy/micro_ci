@@ -19,10 +19,10 @@ class TinyCI
       projects.each do |project|
         IO.popen("cd #{project.path};git pull") {|io| @output = io.read }
         if @output.include?("Already up-to-date.")
-          puts "up_to_date"
-          return
+          puts "#{project.name} - up_to_date"
+          next
         else
-          puts "about to build"
+          puts "about to build - #{project.name}"
           build_it(project)
         end
       end
@@ -39,7 +39,7 @@ class TinyCI
       filename = "#{SINATRA_ROOT}/builds/#{project.name}/" + Time.now.strftime("%Y-%m-%d-%H%M%S") + '.build_log'
       results.each do |result| 
         File.open(filename, 'a')  do |f|
-          f.write("=======================#{result.test_case}================================== \n")
+          f.write("=============#{result.test_case}-#{result.success ?  "SUCCESS" : "FAILED"}==================== \n")
           f.write(result.output)
           f.write("\n")
         end
