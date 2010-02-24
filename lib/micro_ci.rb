@@ -11,7 +11,7 @@ class MicroCI
     def git_poller
       projects.each do |project|
         IO.popen("cd #{project.path};git pull") {|io| @output = io.read }
-        if @output.include?("Already up-to-date.")
+        if false#@output.include?("Already up-to-date.")
           puts "#{project.name} - up_to_date"
           next
         else
@@ -48,7 +48,7 @@ class MicroCI
       @results = []
       project.test_cases.each do |tc|
         result = OpenStruct.new(:test_case => tc)
-        IO.popen("cd #{project.path};#{tc} &2>1") {|io| result.output = io.read}
+        IO.popen("cd #{project.path};#{tc}") {|io| result.output = io.read}
         result.success = $?.success?
         @results << result
       end
