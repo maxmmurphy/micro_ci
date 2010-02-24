@@ -1,5 +1,4 @@
 require 'yaml'
-require 'yaml'
 require 'ostruct'
 
 PROJECT_CONFIG = YAML::load(File.open(SINATRA_ROOT + '/config/projects.yml'))
