@@ -19,10 +19,10 @@ class TinyCI
       projects.each do |project|
         IO.popen("cd #{project.path};git pull") {|io| @output = io.read }
         if @output.include?("Already up-to-date.")
-          puts "up_to_date"
-          return
+          puts "#{project.name} - up_to_date"
+          next
         else
-          puts "about to build"
+          puts "about to build - #{project.name}"
           build_it(project)
         end
       end
