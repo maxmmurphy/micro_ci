@@ -7,7 +7,9 @@ require 'haml'
 require File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib/will_paginate'
 require File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib/will_paginate/view_helpers/link_renderer'
 require File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib/will_paginate/view_helpers/base'
-require "#{SINATRA_ROOT}/config"
+require "config"
+require "lib/helpers"
+include Helpers
 include WillPaginate::ViewHelpers::Base
 
 Array.class_eval do

@@ -10,7 +10,7 @@
         %a{:href => build.url}
           = build.name
       %td
-        Ran at: 
-        = build.date
+        Executed - 
+        = time_ago_in_words(build.date)
 
 = will_paginate @builds
