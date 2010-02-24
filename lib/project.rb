@@ -12,7 +12,7 @@ class Project
   end
   
   def last_build_result
-    builds.last.result rescue 'UNKNOWN'
+    builds.last.result.chomp rescue 'UNKNOWN'
   end
   
   def builds
