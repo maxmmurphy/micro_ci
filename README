@@ -10,6 +10,7 @@ git clone git://github.com/maxmmurphy/micro_ci.git
 * Make a projects/ directory at the same level as your micro_ci application
 * Make a builds/project_name directory that matches your project config
 * clone the projects you added to the projects.yml making sure to keep the name the same as in the config
+* check out the branch you want to be testing
 * Make sure the rake tasks you want to run work in the project, ie set up the necessary gems, db, etc
 * Ready to go! 
 
@@ -17,3 +18,9 @@ git clone git://github.com/maxmmurphy/micro_ci.git
 
 * make sure this runs successfully $> ruby micro_ci_cron.rb
 * add a crontab entry to run the poller script every 5 minutes => */5 * * * * /home/adam/micro_ci_cron.rb
+
+= Know issues
+
+* can't run 2 or more instances of MicroCI on the same server
+* need to clone repo for each separate branch you want to test
+* will_paginate agnostic branch is frozen to vendor/gems until a better solution arises.
