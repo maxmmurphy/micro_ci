@@ -16,7 +16,7 @@ class Build
   end
   
   def date
-    Time.at(build_number.to_i).strftime("%Y-%m-%d-%H:%M:%S")
+    Time.at(build_number.to_i)
   end
   
   def output_path
