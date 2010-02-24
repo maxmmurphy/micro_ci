@@ -12,11 +12,11 @@ class Project
   end
   
   def last_build_result
-    builds.last.result.chomp rescue 'UNKNOWN'
+    builds.first.result.chomp rescue 'UNKNOWN'
   end
   
   def builds
-    Dir.glob(SINATRA_ROOT + "/builds/#{self.name}/*").map{|b| Build.new(File.basename(b, ".build_log"), self.name)}.sort! {|a,b| a.build_number <=> b.build_number}
+    Dir.glob(SINATRA_ROOT + "/builds/#{self.name}/*").map{|b| Build.new(File.basename(b, ".build_log"), self.name)}.sort! {|a,b| b.build_number <=> a.build_number}
   end
   
   def status_changed?
