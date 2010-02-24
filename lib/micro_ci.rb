@@ -51,7 +51,7 @@ class MicroCI
       @results = []
       project.test_cases.each do |tc|
         result = OpenStruct.new(:test_case => tc)
-        IO.popen("cd #{project.path};#{tc}") {|io| result.output = io.read}
+        IO.popen("cd #{project.path};#{tc} &2>1") {|io| result.output = io.read}
         result.success = $?.success?
         @results << result
       end
