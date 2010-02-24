@@ -10,4 +10,4 @@
         %a{ :href => "/projects/#{project.name}" }
           = project.name
       %td
-        = "Project last built #{time_ago_in_words(project.last_build.date)} ago."
+        = "Project last built #{time_ago_in_words(project.last_build.date)} ago." rescue 'Last build time unknown'
