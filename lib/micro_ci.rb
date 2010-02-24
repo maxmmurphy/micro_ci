@@ -1,4 +1,4 @@
-class TinyCI
+class MicroCI
   class << self
     def projects
       PROJECT_CONFIG.keys.map {|pname| Project.new(pname)}
@@ -6,7 +6,7 @@ class TinyCI
   
     def running?
       IO.popen("ps") {|io| @running = io.read}
-      is_running = @running.include?("tiny_ci/../projects")
+      is_running = @running.include?("micro_ci/../projects")
       is_running
     end
     

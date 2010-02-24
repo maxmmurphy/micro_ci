@@ -6,7 +6,7 @@ require 'haml'
 require 'config'
 
   get '/' do
-    @projects = TinyCI.projects
+    @projects = MicroCI.projects
     haml :index
   end
 
