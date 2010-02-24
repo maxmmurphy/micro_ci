@@ -2,3 +2,4 @@ builds/*/*.build_log
 log/*log
 config/projects.yml
 .DS_Store
+running.txt
