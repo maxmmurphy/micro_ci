@@ -2,9 +2,9 @@ class Build
 
   attr_reader :project_name, :build_number
 
-  def initialize(date, project_name)
+  def initialize(epoch_time, project_name)
     @project_name = project_name
-    @build_number = date
+    @build_number = epoch_time
   end
   
   def url
@@ -13,6 +13,14 @@ class Build
 
   def name
     "#{project_name}-#{build_number}"
+  end
+  
+  def date
+    Time.at(build_number.to_i).strftime("%Y-%m-%d-%H:%M:%S")
+  end
+  
+  def ran_at
+    timeago(Time.now, date)
   end
   
   def output_path

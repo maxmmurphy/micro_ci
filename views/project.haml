@@ -9,5 +9,8 @@
       %td
         %a{:href => build.url}
           = build.name
+      %td
+        Ran at: 
+        = build.date
 
 = will_paginate @builds

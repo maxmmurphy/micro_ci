@@ -1,16 +1,13 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.unshift File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib'
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib' # using agnostic branch
 SINATRA_ROOT = Dir.pwd + '/' + File.dirname(__FILE__)                                                                                                 
 require 'rubygems'
 require 'sinatra'
-require 'sinatra_more/markup_plugin'
 require 'haml'
 require File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib/will_paginate'
 require File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib/will_paginate/view_helpers/link_renderer'
 require File.dirname(__FILE__) + '/vendor/gems/will_paginate/lib/will_paginate/view_helpers/base'
-
-require 'config'
-
+require "#{SINATRA_ROOT}/config"
 include WillPaginate::ViewHelpers::Base
 
 get '/' do

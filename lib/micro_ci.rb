@@ -31,7 +31,7 @@ class MicroCI
     end
 
     def write_output(results, project)
-      filename = "#{SINATRA_ROOT}/builds/#{project.name}/" + Time.now.strftime("%Y-%m-%d-%H%M%S") + '.build_log'
+      filename = "#{SINATRA_ROOT}/builds/#{project.name}/" + Time.now.to_i.to_s + '.build_log'
       results.each do |result| 
         File.open(filename, 'a')  do |f|
           f.write("=============#{result.test_case}-#{result.success ?  "SUCCESS" : "FAILED"}==================== \n")
