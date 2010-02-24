@@ -10,5 +10,4 @@
         %a{ :href => "/projects/#{project.name}" }
           = project.name
       %td
-        Last ran - 
-        = time_ago_in_words(project.last_build.date)
+        = "Project last built #{time_ago_in_words(project.last_build.date)} ago."
