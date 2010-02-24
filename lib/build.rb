@@ -20,7 +20,8 @@ class Build
   end
   
   def result
-    `tail -1 #{output_path}` 
+    result = `tail -1 #{output_path}`
+    result.chomp.empty? ? 'UNKNOWN' : result
   end
   
 end
