@@ -19,10 +19,6 @@ class Build
     Time.at(build_number.to_i).strftime("%Y-%m-%d-%H:%M:%S")
   end
   
-  def ran_at
-    timeago(Time.now, date)
-  end
-  
   def output_path
     "#{SINATRA_ROOT}/builds/#{project_name}/#{build_number}.build_log"
   end
