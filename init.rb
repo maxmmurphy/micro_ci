@@ -12,7 +12,7 @@ require "#{SINATRA_ROOT}/config"
 
   get '/projects/:project_name' do
     project_name = params[:project_name]
-    @builds = Project.new(project_name).builds.sort! {|a,b| b.build_number <=> a.build_number}
+    @builds = Project.new(project_name).builds
     haml :project
   end
 
