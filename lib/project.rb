@@ -20,7 +20,7 @@ class Project
   end
   
   def status_changed?
-    builds[-2].result != last_build_result
+    builds[-2].result != last_build_result rescue false
   end
   
   def notify

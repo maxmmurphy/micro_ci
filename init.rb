@@ -3,7 +3,7 @@ SINATRA_ROOT = Dir.pwd + '/' + File.dirname(__FILE__)
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'config'
+require "#{SINATRA_ROOT}/config"
 
   get '/' do
     @projects = MicroCI.projects
