@@ -19,7 +19,7 @@ git clone git://github.com/maxmmurphy/micro_ci.git
 * make sure this runs successfully $> ruby micro_ci_cron.rb
 * add a crontab entry to run the poller script every 5 minutes => */5 * * * * /home/adam/micro_ci_cron.rb
 
-= Know issues
+= Known issues
 
 * can't run 2 or more instances of MicroCI on the same server
 * need to clone repo for each separate branch you want to test
