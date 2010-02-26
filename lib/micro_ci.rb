@@ -11,7 +11,7 @@ class MicroCI
     def git_poller
       projects.each do |project|
         IO.popen("cd #{project.path};git pull") {|io| @output = io.read }
-        if false#@output.include?("Already up-to-date.")
+        if @output.include?("Already up-to-date.")
           puts "#{project.name} - up_to_date"
           next
         else
