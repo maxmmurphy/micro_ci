@@ -3,3 +3,4 @@ log/*log
 config/projects.yml
 .DS_Store
 running.txt
+tmp/
