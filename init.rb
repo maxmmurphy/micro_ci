@@ -38,7 +38,6 @@ WillPaginate::ViewHelpers::LinkRenderer.class_eval do
   end
 end
 
-
 get '/' do
   @projects = MicroCI.projects
   haml :index

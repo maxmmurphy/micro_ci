@@ -1,10 +1,18 @@
-sample_app:
-  branch: master
-  test_cases:
-    - 'rake ci:specs'
-  email:
-    to: bunchofguys@mydomain.com
-    from: noreply@mydomain.com
-    smtp_server: smtp.mydomain.com
-    smtp_port: 25
-    smtp_domain: mydomain.com
+projects:
+  sample_app:
+    branch: master
+    test_cases:
+      - 'rake ci:specs'
+    email:
+      to: bunchofguys@mydomain.com
+      from: noreply@mydomain.com
+      smtp_server: smtp.mydomain.com
+      smtp_port: 25
+      smtp_domain: mydomain.com
+    jabber_room: public@mydomain.com
+jabber:
+  user_id: me
+  domain: mydomain.com
+  password: secretstuff
+
+

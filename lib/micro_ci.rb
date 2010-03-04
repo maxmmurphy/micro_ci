@@ -1,7 +1,7 @@
 class MicroCI
   class << self
     def projects
-      PROJECT_CONFIG.keys.map {|pname| Project.new(pname)}
+      PROJECT_CONFIG["projects"].keys.map {|pname| Project.new(pname)}
     end
   
     def running?

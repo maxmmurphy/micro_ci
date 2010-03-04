@@ -15,28 +15,27 @@ class Notifier
       ].join("\n") << "\n\n" << body << "\n"
     end
 
-    def send_email(project, result)
-      from = PROJECT_CONFIG[project.name]["email"]["from"]
-      recipients = PROJECT_CONFIG[project.name]["email"]["to"]
-      subject =  "CDBUILDER - #{project.name} build status has changed to #{result}"
-      body = "CDBUILDER - #{project.name} build status has changed to #{result}\n\n Go to build server to see details."
-      Net::SMTP.start(PROJECT_CONFIG[project.name]["email"]["smtp_server"], PROJECT_CONFIG[project.name]["email"]["port"], PROJECT_CONFIG[project.name]["email"]["domain"]) do |smtp|
+    def send_email(project, subject, body)
+      from = PROJECT_CONFIG["projects"][project.name]["email"]["from"]
+      recipients = PROJECT_CONFIG["projects"][project.name]["email"]["to"]
+      Net::SMTP.start(PROJECT_CONFIG["projects"][project.name]["email"]["smtp_server"], PROJECT_CONFIG["projects"][project.name]["email"]["port"], PROJECT_CONFIG["projects"][project.name]["email"]["domain"]) do |smtp|
         smtp.send_message compose_mail(recipients, from, subject, body), from, recipients
       end
     end
     
-    def login_to_jabber(project)
-      xmpp = Jabber::Client.new(Jabber::JID::new('PROJECT_CONFIG[project.name]['jabber']['user_id']jeberly@cdebiz005.candrugcorp')) # change me to yaml
-      xmpp.connect
-      xmpp.auth('PROJECT_CONFIG[project.name]['jabber']['password']') # change me to yaml password
-      muc = Jabber::MUC::MUCClient.new(xmpp)
-      muc.my_jid = PROJECT_CONFIG[project.name]['jabber']['password']'jeberly' # change me to yaml
-      muc.join('panda@conference.cdebiz005/jeberly') # change me to yaml
+    def jabber_user
+      "#{PROJECT_CONFIG['jabber']['user_id']}@#{PROJECT_CONFIG['jabber']['domain']}"
     end
 
-    def send_jabber_message(project, message)
-
-      m = Jabber::Message::new(nil, message)
+    def jabber_client_init
+      Jabber::debug = true
+      $jabber_client = Jabber::Client.new(Jabber::JID::new(jabber_user)) 
+      $jabber_client.connect
+      $jabber_client.auth(PROJECT_CONFIG['jabber']['password'])
+    end
+    
+    def send_jabber_message(muc, message)
+      m = Message::new(nil, message)
       muc.send m
     end
   end
