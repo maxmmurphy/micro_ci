@@ -49,6 +49,13 @@ get '/projects/:project_name' do
   haml :project
 end
 
+get '/notify/:project_name' do
+  # kick off notify from a an external process
+  project_name = params[:project_name]
+  Project.new(project_name).notify
+end
+
+
 get '/projects/:project_name/:build' do
   project_name = params[:project_name]
   @build = Build.new(params[:build], project_name)

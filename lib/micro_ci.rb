@@ -1,3 +1,4 @@
+require 'net/http'
 class MicroCI
   class << self
     def projects
@@ -24,7 +25,7 @@ class MicroCI
     def build_it(project)
       results = run_test_cases(project)
       write_output(results, project)
-      project.notify
+      Net::HTTP.get_print URI.parse("#{PROJECT_CONFIG["app_url"]}/notify/#{project.name}") # trigger notify
     end
 
     def write_output(results, project)

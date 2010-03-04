@@ -14,5 +14,7 @@ jabber:
   user_id: me
   domain: mydomain.com
   password: secretstuff
+app_url:
+  http://mybuilder:4567
 
 
