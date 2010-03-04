@@ -28,7 +28,7 @@ class Notifier
     end
 
     def jabber_client_init
-      Jabber::debug = true
+      # Jabber::debug = true
       $jabber_client = Jabber::Client.new(Jabber::JID::new(jabber_user)) 
       $jabber_client.connect
       $jabber_client.auth(PROJECT_CONFIG['jabber']['password'])
