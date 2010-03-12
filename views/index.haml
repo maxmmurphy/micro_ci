@@ -11,3 +11,5 @@
           = project.name
       %td
         = "Project last built #{time_ago_in_words(project.last_build.date)} ago." rescue 'Last build time unknown'
+      %td
+        = "(#{project.last_build.date.strftime("%b %d %Y at %I:%M%p")})" rescue ''
