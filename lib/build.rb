@@ -19,6 +19,10 @@ class Build
     Time.at(build_number.to_i)
   end
   
+  def destroy
+    File.delete(output_path)
+  end
+  
   def output_path
     "#{SINATRA_ROOT}/builds/#{project_name}/#{build_number}.build_log"
   end

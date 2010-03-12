@@ -3,6 +3,7 @@ projects:
     branch: master
     test_cases:
       - 'rake ci:specs'
+    cleanup_count: 10
     email:
       to: bunchofguys@mydomain.com
       from: noreply@mydomain.com
@@ -16,5 +17,3 @@ jabber:
   password: secretstuff
 app_url:
   http://mybuilder:4567
-
-

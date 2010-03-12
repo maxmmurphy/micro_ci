@@ -1,9 +1,10 @@
 class Project
-  attr_reader :branch, :test_cases, :name, :config
+  attr_reader :branch, :test_cases, :name, :config, :cleanup_count
   def initialize(name)
     @config = PROJECT_CONFIG
     @name = name
     @branch = @config['projects'][name]['branch']
+    @cleanup_count = @config['projects'][name]['cleanup_count']
     @test_cases = @config['projects'][name]['test_cases']
   end
   
@@ -17,6 +18,10 @@ class Project
   
   def last_build
     builds.first
+  end
+  
+  def cleanup
+    builds[cleanup_count..-1].each(&:destroy) if cleanup_count rescue nil
   end
   
   def builds

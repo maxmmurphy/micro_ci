@@ -11,6 +11,8 @@
           = build.name
       %td
         = "Executed #{time_ago_in_words(build.date)} ago."
+      %td
+        = "(#{build.date.strftime("%b %d %Y at %I:%M%p")})"
         
 
 = will_paginate @builds

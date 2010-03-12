@@ -18,6 +18,7 @@ class MicroCI
         else
           puts "about to build - #{project.name}"
           build_it(project)
+          project.cleanup
         end
       end
     end
